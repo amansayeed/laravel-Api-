@@ -14,4 +14,8 @@ class countryController extends Controller
 
         return response()->json(country::get(),200);
     }
+    public function getCountryById($id)
+    {
+        return response()->json(country::find($id),200);
+    }
 }
