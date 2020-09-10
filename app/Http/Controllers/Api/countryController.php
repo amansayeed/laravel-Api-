@@ -32,4 +32,11 @@ class countryController extends Controller
 
 
     }
+
+    public function deleteCountrydata(Request $request, country $country)
+    {
+
+        $country->delete();
+        return response()->json(null,204);
+    }
 }
