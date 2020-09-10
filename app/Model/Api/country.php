@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class country extends Model
 {
     protected $table="_z_country";
+    public $timestamps=false;
     protected $fillable=
     [
         "iso",
@@ -15,7 +16,13 @@ class country extends Model
         "iso3",
         "position",
         "numcode",
-        "phonecode"
+        "phonecode",
+        
+        "created",
+        "register_by",
+        "modified",
+        "modified_by",
+        
     ];
 
 }
