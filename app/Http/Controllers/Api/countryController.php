@@ -11,8 +11,8 @@ class countryController extends Controller
 {
     public function getCounty()
     {
-        
-        return response()->json(country::get(), 200);
+        $country=country::paginate();
+        return response()->json($country, 200);
     }
     public function getCountryById($id)
     {
