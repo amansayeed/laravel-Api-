@@ -12,14 +12,18 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
 |
-*/
+ */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('getcountry','Api\countryController@getCounty');
-Route::get('getcountrybyid/{id}','Api\countryController@getCountryById');
-Route::post('savecountrydata','Api\countryController@saveCountydata');
-Route::put('editcountrydata/{country}','Api\countryController@editCountrydata');
-Route::delete('deletecountrydata/{country}','Api\countryController@deleteCountrydata');
+// get data without id
+Route::get('getcountry', 'Api\countryController@getCounty');
+//get data with id.
+Route::get('getcountrybyid/{id}', 'Api\countryController@getCountryById');
+//save data in table
+Route::post('savecountrydata', 'Api\countryController@saveCountydata');
+//edit data in the table
+Route::put('editcountrydata/{id}', 'Api\countryController@editCountrydata');
+//delete recods in the table
+Route::delete('deletecountrydata/{id}', 'Api\countryController@deleteCountrydata');
