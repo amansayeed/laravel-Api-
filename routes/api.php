@@ -27,3 +27,9 @@ Route::post('savecountrydata', 'Api\countryController@saveCountydata');
 Route::put('editcountrydata/{id}', 'Api\countryController@editCountrydata');
 //delete recods in the table
 Route::delete('deletecountrydata/{id}', 'Api\countryController@deleteCountrydata');
+
+
+//downloading the file 
+Route::get("file/getcountry","Api\countryController@filedownload");
+//uploading the file via api 
+Route::post("file/postdata","Api\countryController@fileupload");

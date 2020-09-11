@@ -11,7 +11,7 @@ class countryController extends Controller
 {
     public function getCounty()
     {
-        $country=country::paginate();
+        $country=country::paginate(20);// in the pagnation show 20 record in per page 
         return response()->json($country, 200);
     }
     public function getCountryById($id)
@@ -73,4 +73,19 @@ class countryController extends Controller
             return response()->json(null, 204);
         }
     }
+
+
+    public function filedownload()
+    {
+        return response()->download(public_path('image/pan .jpg'),'User Image');
+
+    }
+
+        public function fileupload(Request $request)
+        {
+            $file_name="User_image.jpg";
+            $path=$request->file('photo')->move(public_path("/image"),$file_name);
+            $photo_URL=url('/image/'.$file_name);
+            return response()->json(["url"=>$photo_URL],200);
+        }
 }
